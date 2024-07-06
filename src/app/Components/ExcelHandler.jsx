@@ -19,7 +19,7 @@ const make_cols = (refstr) => {
 
 
 const editHandler =()=>{
-
+   console.log("ji");
 }
 
 const ExcelReader = () => {
