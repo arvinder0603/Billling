@@ -52,8 +52,8 @@ const ExcelReader = () => {
 
 
   const filteredReceipts = dataReq.filter(item => 
-    item.Tenantname.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    item.roomNo.toString().includes(searchTerm)
+    item?.Tenantname?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    item?.roomNo?.toString().includes(searchTerm)
   );
 
   const OnclickHandler = (data) => {
@@ -112,6 +112,7 @@ const ExcelReader = () => {
       const data = XLSX.utils.sheet_to_json(ws);
       setData(data);
       setCols(make_cols(ws["!ref"]));
+      console.log("dara",data);
 
       const getFirstKey = (obj) => Object.keys(obj)[0];
       const firstKeyValues = data.slice(2).map((obj) => obj[getFirstKey(obj)]);
@@ -120,10 +121,10 @@ const ExcelReader = () => {
       
 
       const updatedDataReq = data.slice(2).map((item, index) => ({
-        Tenantname: item.__EMPTY_1,
+        Tenantname: item?.__EMPTY_1,
         roomNo: firstKeyValues[index],
-        PhoneNumber: item.__EMPTY_2 ? item.__EMPTY_2 : "Not Available",
-        OldMeterReading: item.__EMPTY_10 ? item.__EMPTY_10 : "Not Available",
+        PhoneNumber: item?.__EMPTY_2 ? item.__EMPTY_2 : "Not Available",
+        OldMeterReading: item?.__EMPTY_10 ? item.__EMPTY_10 : "Not Available",
         NewMeterReading: item?.__EMPTY_11 ? item?.__EMPTY_11 : "Not Available",
         AgreementNumber: item?.__EMPTY_4 ? item?.__EMPTY_4 : "Not Available",
         Rent: item?.__EMPTY_9 ? item?.__EMPTY_9 : "Not Available",
