@@ -19,7 +19,7 @@ const make_cols = (refstr) => {
 
 
 const editHandler =()=>{
-   console.log("ji");
+  
 }
 
 const ExcelReader = () => {
@@ -46,6 +46,10 @@ const ExcelReader = () => {
       BillAmount: 0,
       PreviousBalance: 0,
       TotalAmount: 0,
+      mobileNo:"",
+      PhoneNumber:"",
+      AdvanceMoney:0,
+      Maintaince:0
     },
   ]);
 
@@ -120,7 +124,7 @@ const ExcelReader = () => {
 
       
 
-      const updatedDataReq = data.slice(2).map((item, index) => ({
+      const updatedDataReq = data.slice(2).map((item, index) => (console.log("ere",data[index]),{
         Tenantname: item?.__EMPTY_1,
         roomNo: firstKeyValues[index],
         PhoneNumber: item?.__EMPTY_2 ? item.__EMPTY_2 : "Not Available",
@@ -131,6 +135,7 @@ const ExcelReader = () => {
         UnitUsed: item?.__EMPTY_12 ? item?.__EMPTY_12 : "Not Available",
         BillAmount: item?.__EMPTY_14 ? item?.__EMPTY_14 : "Not Available",
         TotalAmount: item?.__EMPTY_18 ? item?.__EMPTY_18 : "Not Available",
+         Maintaince:item?.__EMPTY_15 ? item?.__EMPTY_15  :"--"
       }));
 
       setDataReq(updatedDataReq);

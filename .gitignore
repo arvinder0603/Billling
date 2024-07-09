@@ -6,6 +6,7 @@
 .pnp.js
 .yarn/install-state.gz
 
+
 # testing
 /coverage
 
@@ -18,6 +19,7 @@
 
 # misc
 .DS_Store
+/out
 *.pem
 
 # debug

@@ -3,10 +3,7 @@ import PropTypes from 'prop-types';
 
 const Modal = ({ isOpen , children, onClose, Width, showCross = true }) => {
 
-  Modal.propTypes = {
-    isOpen: PropTypes.bool.isRequired
-  };
-
+  
 
   useEffect(() => {
     const handleKeyPress = (event) => {
