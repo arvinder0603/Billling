@@ -41,7 +41,7 @@ const ReciptShower = ({ data, buildingNo }) => {
     }
 
     try {
-      const dataUrl = await htmlToImage.toPng(domEl);
+      const dataUrl = await htmlToImage.toJpeg(domEl);
       const link = document.createElement('a');
       link.download = `${roomNo}.png`;
       link.href = dataUrl;
