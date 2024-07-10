@@ -27,7 +27,7 @@ const RecieptLayout = ({ buildingNo, data }) => {
           <div className=" flex  w-full     border-b-2  border-y-gray-400 justify-evenly">
             <div className=" flex justify-center items-center">
               {/* <Icon height={45} icon="material-symbols-light:house-outline" /> */}
-              <Image  alt=""  src={pink} width={100} />
+              <Image alt=""  src={pink} width={100} />
             </div>
 
             <div className=" m-2 min-w-[300px] flex justify-center  flex-col items-center outline p-2  outline-1 outline-gray-400 rounded-2xl">
