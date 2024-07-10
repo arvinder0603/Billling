@@ -10,7 +10,7 @@ import RecieptLayout from "./Components/RecieptLayout";
 import ReciptShower from "./Components/ReciptShower";
 import { Icon } from "@iconify/react";
 import * as htmlToImage from "html-to-image";
-import pink from "../../public/pink.jpg"
+import pink from "/Users/user/Desktop/billing/public/pink.jpg"
 
 export default function Home() {
   const [modalOpen, SetModalOpen] = useState(true);
@@ -74,7 +74,7 @@ export default function Home() {
 
       <div className="   " >
 
-      <Image alt=""  className=""  src={pink} height={90} width={100} />
+      <img alt=""  className=""  src={pink} height={90} width={100} />
 
       </div>
    
