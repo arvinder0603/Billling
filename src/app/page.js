@@ -25,23 +25,31 @@ export default function Home() {
 
   const [showManualDataReceipt, SetshowManualDataReceipt] = useState(false);
 
-  const downloadHandler = async (key, roomNo) => {
-    const domEl = receiptRefs.current[key];
-    if (!domEl) {
-      console.error("Receipt element not found");
-      return;
-    }
+const downloadHandler = async (key, roomNo) => {
+  const domEl = receiptRefs.current[key];
+  if (!domEl) {
+    console.error("Receipt element not found");
+    return;
+  }
 
-    try {
-      const dataUrl = await htmlToImage.toJpeg(domEl);
-      const link = document.createElement("a");
-      link.download = `${roomNo}.png`;
-      link.href = dataUrl;
-      link.click();
-    } catch (error) {
-      console.error("Error generating image:", error);
-    }
-  };
+  try {
+    const dataUrl = await htmlToImage.toJpeg(domEl, {
+      quality: 0.95,
+      backgroundColor: "#ffffff", // 👈 forces white background
+      style: {
+        margin: 0,
+        padding: 0,
+      },
+    });
+
+    const link = document.createElement("a");
+    link.download = `${roomNo}.jpeg`;
+    link.href = dataUrl;
+    link.click();
+  } catch (error) {
+    console.error("Error generating image:", error);
+  }
+};
 
   const OnclickHandler = (data) => {
     SetmanualEnterData(data);
